@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Optional
 
 class SCandidateAdd(BaseModel):
@@ -7,5 +7,7 @@ class SCandidateAdd(BaseModel):
     check_list: str
     notes: str
 
-class STask(SCandidateAdd):
+class SCandidate(SCandidateAdd):
     id: int
+
+    model_config = ConfigDict(from_attributes=True)
