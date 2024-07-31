@@ -10,7 +10,7 @@ router = APIRouter(
 
 @router.post("", tags=["New candidates"])
 async def add_candidate(
- candidate: Annotated[SCandidateAdd, Depends()],
+ candidate: SCandidateAdd,
 ):
     candidate = await CandidateRepository.add_one(candidate)
     return {"data": candidate}
