@@ -1,2 +1,4 @@
 venv
 candidates.db
+.DS_Store
+.pyc
