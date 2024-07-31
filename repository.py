@@ -9,11 +9,11 @@ class CandidateRepository:
         async with new_session() as session:
             task_dict = data.model_dump()
 
-            task = CandidateOrm(**task_dict)
-            session.add(task)
+            candidate = CandidateOrm(**task_dict)
+            session.add(candidate)
             await session.flush()
             await session.commit()
-            return task.id
+            return candidate
 
     @classmethod
     async def find_all(cls):

@@ -19,7 +19,7 @@ class CandidateOrm(Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     full_name: Mapped[str]
     link: Mapped[str]
-    check_list:  Mapped[List[str]] = mapped_column(JSON)
+    check_list: Mapped[str]
     notes: Mapped[str]
 
 
