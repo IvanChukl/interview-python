@@ -17,10 +17,10 @@ class CandidateOrm(Model):
     __tablename__ = "candidates"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    full_name: Mapped[str]
-    link: Mapped[str]
-    check_list: Mapped[str]
-    notes: Mapped[str]
+    full_name: Mapped[str] = mapped_column(String)
+    link: Mapped[str] = mapped_column(String)
+    check_list: Mapped[str] = mapped_column(String)
+    notes: Mapped[str] = mapped_column(String)
 
 
 
