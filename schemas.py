@@ -14,13 +14,14 @@ class SCandidate(SCandidateAdd):
 
 class SInterviewedCandidateAdd(BaseModel):
     full_name: str
-    checklist_comments: str
+    checklist_comments: dict
     interior_rating: int
     result_score: int
     grade: str
     review: str
-    recommend_candidate: bool
+    is_recommend: bool
     notes: str
+    result_for_block: list
 
 class SInterviewedCandidate(SInterviewedCandidateAdd):
     id: int
