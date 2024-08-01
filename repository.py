@@ -2,10 +2,9 @@ from datebase import new_session, CandidateOrm
 from main import SCandidateAdd
 from sqlalchemy import select
 
-
 class CandidateRepository:
     @classmethod
-    async def add_one(cls, data: SCandidateAdd) -> int:
+    async def add_one(cls, data: SCandidateAdd) -> CandidateOrm:
         async with new_session() as session:
             task_dict = data.model_dump()
 
@@ -30,4 +29,3 @@ class CandidateRepository:
             result = await session.execute(query)
             task = result.scalars().first()
             return task
-

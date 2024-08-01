@@ -3,13 +3,17 @@ from pydantic import BaseModel
 from typing import Optional, Annotated
 from contextlib import asynccontextmanager
 from datebase import create_tables, delete_tables
+from datebases.interviewed_candidate import interviewed_create_tables, interviewed_delete_tables
 from schemas import SCandidateAdd
-from router import router as tasks_router
+from router import new_candidate_router as new_candidate_router
+from router import interviewed_candidate as interviewed_candidate
 from fastapi.middleware.cors import CORSMiddleware
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await delete_tables()
+    await interviewed_delete_tables()
+    await interviewed_create_tables()
     await create_tables()
     yield
 
@@ -29,4 +33,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(tasks_router)
+app.include_router(new_candidate_router)
+app.include_router(interviewed_candidate)

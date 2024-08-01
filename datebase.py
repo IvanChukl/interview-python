@@ -1,8 +1,6 @@
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
-from typing import Optional, List
-from sqlalchemy import String, JSON
-from sqlalchemy.dialects.postgresql import ARRAY
+from sqlalchemy import String
 
 engine = create_async_engine(
     "sqlite+aiosqlite:///candidates.db"
@@ -21,7 +19,6 @@ class CandidateOrm(Model):
     link: Mapped[str] = mapped_column(String)
     check_list: Mapped[str] = mapped_column(String)
     notes: Mapped[str] = mapped_column(String)
-
 
 
 async def create_tables():
