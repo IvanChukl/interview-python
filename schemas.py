@@ -1,5 +1,5 @@
 from pydantic import BaseModel, ConfigDict
-from typing import Optional, List
+from typing import Dict, Optional, List
 
 class SCandidateAdd(BaseModel):
     full_name: str
@@ -14,13 +14,13 @@ class SCandidate(SCandidateAdd):
 
 class SInterviewedCandidateAdd(BaseModel):
     full_name: str
-    checklist_comments: dict
+    checklist_comments: Optional[Dict]
     interior_rating: int
     result_score: int
     grade: str
     review: str
     is_recommend: bool
-    notes: str
+    notes: Optional[str]
     result_for_block: list
 
 class SInterviewedCandidate(SInterviewedCandidateAdd):
